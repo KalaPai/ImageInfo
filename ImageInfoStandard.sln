@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageInfoStandard", "ImageInfoStandard\ImageInfoStandard.csproj", "{371CCDD5-44BC-432A-9CA2-BC5A6A4B39EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageInfoTest", "ImageInfoTest\ImageInfoTest.csproj", "{DA6B2DA2-8548-4137-8FF0-9002EFC41A0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{371CCDD5-44BC-432A-9CA2-BC5A6A4B39EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371CCDD5-44BC-432A-9CA2-BC5A6A4B39EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371CCDD5-44BC-432A-9CA2-BC5A6A4B39EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371CCDD5-44BC-432A-9CA2-BC5A6A4B39EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA6B2DA2-8548-4137-8FF0-9002EFC41A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA6B2DA2-8548-4137-8FF0-9002EFC41A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA6B2DA2-8548-4137-8FF0-9002EFC41A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA6B2DA2-8548-4137-8FF0-9002EFC41A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A7422EE-85C3-4287-823E-2DBEE2E2234A}
+	EndGlobalSection
+EndGlobal
