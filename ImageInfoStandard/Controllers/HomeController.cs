@@ -23,24 +23,40 @@ namespace ImageInfoStandard.Controllers
         public ActionResult Index(ImageInfo Model)
         {
             ViewBag.Title = "Home Page";
-
-            if (IsImageUrl(Model.Path))
+            if (IsValidURI(Model.Path))
             {
-                var client = new RestClient("http://localhost:50509");
+                if (IsImageUrl(Model.Path))
+                {
+                    var client = new RestClient("http://localhost:50509");
 
-                var request = new RestRequest("api/ImageInfo/");
+                    var request = new RestRequest("api/ImageInfo/");
 
-                request.AddParameter("path", Model.Path);
+                    request.AddParameter("path", Model.Path);
 
-                var response = client.Execute<ImageInfo>(request);
+                    var response = client.Execute<ImageInfo>(request);
 
-                return View(response.Data);
+                    return View(response.Data);
+                }
+                else
+                {
+                    return View(new ImageInfo { ErrorMessage = "Not Valid Image" });
+                }
             }
             else
             {
-                return View(new ImageInfo { ErrorMessage = "Not Valid Image" });
+                return View(new ImageInfo { ErrorMessage = "Not Valid Uri" });
             }
-            
+
+        }
+
+        public static bool IsValidURI(string uri)
+        {
+            if (!Uri.IsWellFormedUriString(uri, UriKind.Absolute))
+                return false;
+            Uri tmp;
+            if (!Uri.TryCreate(uri, UriKind.Absolute, out tmp))
+                return false;
+            return tmp.Scheme == Uri.UriSchemeHttp || tmp.Scheme == Uri.UriSchemeHttps;
         }
 
         bool IsImageUrl(string URL)

@@ -11,32 +11,40 @@
     <div class="col-md-4">
         @if (Model != null)
         {
-            if (Model.ErrorMessage == string.Empty)
+            if (string.IsNullOrEmpty(Model.ErrorMessage))
             {
-            <td>
-                <tr>Image Type:</tr>
-                <tr>@Model.Type</tr>
-            </td>
-            <div></div>
-            <td>
-                <tr>Image Height:</tr>
-                <tr>@Model.Height</tr>
-            </td>
-            <div></div>
-            <td>
-                <tr>Image Width:</tr>
-                <tr>@Model.Width</tr>
-            </td>
-            <div></div>
-            <td>
-                <tr>Horizontal Resolution:</tr>
-                <tr>@Model.HorizontalResolution</tr>
-            </td>
-            <div></div>
-            <td>
-                <tr>Vertical Resolution:</tr>
-                <tr>@Model.VerticalResolution</tr>
-            </td>
+                <table>
+                    <tr>
+                        <td>Image Type:</td>
+                        <td>@Model.Type</td>
+                    </tr>
+                    <tr>
+                        <td>Image Height:</td>
+                        <td>@Model.Height</td>
+                    </tr>
+                    <tr>
+                        <td>Image Width:</td>
+                        <td>@Model.Width</td>
+                    </tr>
+                    <tr>
+                        <td>Horizontal Resolution:</td>
+                        <td>@Model.HorizontalResolution</td>
+                    </tr>
+                    <tr>
+                        <td>Vertical Resolution:</td>
+                        <td>@Model.VerticalResolution</td>
+                    </tr>
+                </table>
+            }
+            else
+            {
+                <table>
+                    <tr>
+                        <td>
+                            Invalid Request
+                        </td>
+                        </tr>
+                    </table>
             }
         }
     </div>
