@@ -11,6 +11,8 @@
     <div class="col-md-4">
         @if (Model != null)
         {
+            if (Model.ErrorMessage == string.Empty)
+            {
             <td>
                 <tr>Image Type:</tr>
                 <tr>@Model.Type</tr>
@@ -35,6 +37,7 @@
                 <tr>Vertical Resolution:</tr>
                 <tr>@Model.VerticalResolution</tr>
             </td>
+            }
         }
     </div>
 </div>

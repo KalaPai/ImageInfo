@@ -2,7 +2,9 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,15 +24,34 @@ namespace ImageInfoStandard.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            var client = new RestClient("http://localhost:50509");
+            if (IsImageUrl(Model.Path))
+            {
+                var client = new RestClient("http://localhost:50509");
 
-            var request = new RestRequest("api/ImageInfo/");
+                var request = new RestRequest("api/ImageInfo/");
 
-            request.AddParameter("path", Model.Path);
+                request.AddParameter("path", Model.Path);
 
-            var response = client.Execute<ImageInfo>(request);          
+                var response = client.Execute<ImageInfo>(request);
 
-            return View(response.Data);
+                return View(response.Data);
+            }
+            else
+            {
+                return View(new ImageInfo { ErrorMessage = "Not Valid Image" });
+            }
+            
+        }
+
+        bool IsImageUrl(string URL)
+        {
+            var req = (HttpWebRequest)HttpWebRequest.Create(URL);
+            req.Method = "HEAD";
+            using (var resp = req.GetResponse())
+            {
+                return resp.ContentType.ToLower(CultureInfo.InvariantCulture)
+                           .StartsWith("image/");
+            }
         }
     }
 }

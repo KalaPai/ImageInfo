@@ -13,5 +13,6 @@ namespace ImageInfoStandard.Models
         public float VerticalResolution { get; set; }
         public float HorizontalResolution { get; set; }
         public string Type { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }
